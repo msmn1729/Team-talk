@@ -20,7 +20,7 @@ import java.util.List;
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
-public class Pin extends Timestamped{
+public class Pin {
     @Id //해당 프로퍼티가 테이블의 주키 역할을 한다는 것을 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,7 +32,7 @@ public class Pin extends Timestamped{
     @Column(nullable = false)
     private String title;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "pin", cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pin", cascade = CascadeType.REMOVE)
     @JsonManagedReference
     private List<Card> cards = new ArrayList<Card>();
 
@@ -40,16 +40,17 @@ public class Pin extends Timestamped{
     @JsonBackReference
     private Board board;
 
-    public void setBoard(Board board){
-        this.board=board;
+    public void setBoard(Board board) {
+        this.board = board;
     }
 
-    public Pin(PinRequestDto requestDto,Board board) {
+    public Pin(PinRequestDto requestDto, Board board) {
         this.title = requestDto.getTitle();
         this.board = board;
     }
-    public void update(PinRequestDto requestDto){
-        this.title=requestDto.getTitle();
+
+    public void update(PinRequestDto requestDto) {
+        this.title = requestDto.getTitle();
 
     }
 

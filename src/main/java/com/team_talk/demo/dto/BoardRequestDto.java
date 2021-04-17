@@ -8,7 +8,4 @@ import lombok.Setter;
 @Setter
 public class BoardRequestDto {
     private String title;
-//    private List<Pin> pins;
-
-
 }

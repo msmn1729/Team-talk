@@ -24,29 +24,31 @@ public class CardController {
 
     @GetMapping("/api/select_card")
     public Card SelectCard(
-            @RequestParam(required = false, value= "card")Long pinId
-    ){
-        Card card=cardService.findById(pinId);
+            @RequestParam(required = false, value = "card") Long pinId
+    ) {
+        Card card = cardService.findById(pinId);
         return card;
 
     }
+
     @PostMapping("/api/cards/{pinId}")
     public void createCard(
             @RequestBody CardRequestDto requestDto,
             @PathVariable Long pinId
-    ){
-        cardService.create(requestDto,pinId);
+    ) {
+        cardService.create(requestDto, pinId);
     }
 
     @PutMapping("/api/cards/{cardId}")
     public void updateCard(
             @PathVariable Long cardId,
             @RequestBody CardRequestDto requestDto
-    ){
-        cardService.update(requestDto,cardId);
+    ) {
+        cardService.update(requestDto, cardId);
     }
+
     @DeleteMapping("/api/cards/{cardId}")
-    public void deleteCard(@PathVariable Long cardId){
+    public void deleteCard(@PathVariable Long cardId) {
         cardRepository.deleteById(cardId);
     }
 

@@ -11,5 +11,4 @@ import java.util.List;
 @Setter
 public class PinRequestDto {
     private String title;
-
 }

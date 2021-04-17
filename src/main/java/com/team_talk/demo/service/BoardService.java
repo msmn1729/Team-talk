@@ -6,7 +6,9 @@ import com.team_talk.demo.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 
+@Transactional
 @RequiredArgsConstructor
 @Service
 public class BoardService {
@@ -19,16 +21,15 @@ public class BoardService {
         return boardRepository.save(newBoard);
     }
 
-    public void update(BoardRequestDto requestDto, Long boardId){
-        Board board= boardRepository.findById(boardId).orElseThrow(()->new IllegalArgumentException("내용이 존재하지 않습니다."));
+    public void update(BoardRequestDto requestDto, Long boardId) {
+        Board board = boardRepository.findById(boardId).orElseThrow(
+                () -> new IllegalArgumentException("내용이 존재하지 않습니다."));
         board.update(requestDto);
     }
-
 
     public Board findById(Long id) {
         return boardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
     }
-
 
 
 }

@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor //파라미터가 없는 기본 생성자를 생성해준다.
 @Entity
-public class Card extends Timestamped{
+public class Card extends Timestamped {
 
     @Id //해당 프로퍼티가 테이블의 주키 역할을 한다는 것을 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,15 +35,16 @@ public class Card extends Timestamped{
     @JsonBackReference
     private Pin pin;
 
-    public Card(CardRequestDto requestDto,Pin pin) {
+    public Card(CardRequestDto requestDto, Pin pin) {
         this.title = requestDto.getTitle();
         this.description = requestDto.getDescription();
-        this.pin=pin;
+        this.pin = pin;
 //        this.pin = pinService.findById(requestDto.getPinId());
     }
-    public void update(CardRequestDto requestDto){
-        this.title=requestDto.getTitle();
-        this.description=requestDto.getDescription();
+
+    public void update(CardRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.description = requestDto.getDescription();
 
     }
 

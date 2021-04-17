@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor //파라미터가 없는 기본 생성자를 생성해준다.
-@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 public class Board extends Timestamped {
 
@@ -37,8 +37,9 @@ public class Board extends Timestamped {
     public Board(BoardRequestDto requestDto) {
         this.title = requestDto.getTitle();
     }
-    public void update(BoardRequestDto requestDto){
-        this.title=requestDto.getTitle();
+
+    public void update(BoardRequestDto requestDto) {
+        this.title = requestDto.getTitle();
     }
 
 
@@ -51,7 +52,6 @@ public class Board extends Timestamped {
 
 
 //    }
-
 
 
 }

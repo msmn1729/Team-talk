@@ -15,7 +15,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 
-//@Component
+@Component
 public class TestDataRunner implements ApplicationRunner {
 
     @Autowired
@@ -36,20 +36,21 @@ public class TestDataRunner implements ApplicationRunner {
     @Autowired
     BoardService boardService;
 
-    int i=1;
+    int i = 1;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
 
         Board testboard = new Board();
-        testboard.setTitle(i+"번방");
+        testboard.setTitle(i + "번방");
         boardRepository.save(testboard);
         Long id = testboard.getId();
 
-        createPinData(i+"-1"+"공지사항", id);
-        createPinData(i+"-2"+"api설계", id);
-        createPinData(i+"-3"+"db설계", id);
-        createPinData(i+"-4"+"와이어프레임", id);
+        createPinData(i + "-1" + "공지사항", id);
+        createPinData(i + "-2" + "api설계", id);
+        createPinData(i + "-3" + "db설계", id);
+        createPinData(i + "-4" + "와이어프레임", id);
     }
 
     private void createPinData(String title, Long id) {
@@ -59,12 +60,12 @@ public class TestDataRunner implements ApplicationRunner {
         pinRepository.save(pin);
         Long PinId = pin.getId();
         createTestData("웹 개발의 봄 스프링", "어렵다", PinId);
-        createTestData("리엑트 네이티브", "어렵다",  PinId);
-        createTestData("노드 JS", "어렵다",  PinId);
+        createTestData("리엑트 네이티브", "어렵다", PinId);
+        createTestData("노드 JS", "어렵다", PinId);
         createTestData("리엑트", "어렵다", PinId);
     }
 
-    private void createTestData(String title, String description,  Long id) {
+    private void createTestData(String title, String description, Long id) {
         Card card = new Card();
         card.setTitle(title);
         card.setDescription(description);

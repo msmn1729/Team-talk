@@ -25,29 +25,31 @@ public class PinController {
 
     @GetMapping("/api/select_pin")
     public Pin SelectPin(
-            @RequestParam(required = false, value= "pin")Long pinId
-    ){
-        Pin pin=pinService.findById(pinId);
+            @RequestParam(required = false, value = "pin") Long pinId
+    ) {
+        Pin pin = pinService.findById(pinId);
         return pin;
 
     }
+
     @PostMapping("/api/pins/{boardId}")
     public void createPin(
             @RequestBody PinRequestDto requestDto,
             @PathVariable Long boardId
-    ){
-        pinService.create(requestDto,boardId);
+    ) {
+        pinService.create(requestDto, boardId);
     }
 
     @PutMapping("/api/pins/{pinId}")
     public void updatePin(
             @PathVariable Long pinId,
             @RequestBody PinRequestDto requestDto
-    ){
-        pinService.update(requestDto,pinId);
+    ) {
+        pinService.update(requestDto, pinId);
     }
+
     @DeleteMapping("/api/pins/{pinId}")
-    public void deletePin(@PathVariable Long pinId){
+    public void deletePin(@PathVariable Long pinId) {
         pinRepository.deleteById(pinId);
     }
 
