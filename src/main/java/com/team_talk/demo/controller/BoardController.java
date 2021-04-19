@@ -47,7 +47,7 @@ public class BoardController {
             @PathVariable Long boardId,
             @RequestBody BoardRequestDto requestDto
     ) {
-        System.out.println(boardId);
+//        System.out.println(boardId);
         boardService.update(requestDto, boardId);
     }
 
