@@ -61,10 +61,11 @@ public class TestDataRunner implements ApplicationRunner {
 
     private void createUserData() {
         SignupRequestDto signupRequestDto = new SignupRequestDto();
-        for (int i = 1; i <= 10; i++) {
+        String[] frameworks = new String[]{"Spring", "ReactNative", "NodeJS", "React"};
+        for (int i = 1; i <= 20; i++) {
             signupRequestDto.setUsername(i + "번유저");
             signupRequestDto.setPassword(i + "");
-            signupRequestDto.setEmail(i + "@gmail.com");
+            signupRequestDto.setFramework(frameworks[i % 4]);
             userService.registerUser(signupRequestDto);
         }
     }
