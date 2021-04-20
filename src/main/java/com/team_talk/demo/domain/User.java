@@ -12,10 +12,10 @@ import javax.persistence.*;
 @Entity // DB 테이블 역할을 합니다.
 public class User extends Timestamped {
 
-    public User(String username, String password, String framework) {
+    public User(String username, String password, String skill) {
         this.username = username;
         this.password = password;
-        this.framework = framework;
+        this.skill = skill;
 //        this.role = role;
 //        this.kakaoId = null;
     }
@@ -41,7 +41,7 @@ public class User extends Timestamped {
     private String password;
 
     @Column(nullable = false)
-    private String framework;
+    private String skill;
 
 //    @Column(nullable = false)
 //    @Enumerated(value = EnumType.STRING)

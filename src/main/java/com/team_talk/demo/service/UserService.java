@@ -38,7 +38,7 @@ public class UserService {
         // 패스워드 인코딩
 //        System.out.println(requestDto.getPassword());
         String password = passwordEncoder.encode(requestDto.getPassword());
-        String framework = requestDto.getFramework();
+        String skill = requestDto.getSkill();
         // 사용자 ROLE 확인
 //        UserRole role = UserRole.USER;
 //        if (requestDto.isAdmin()) {
@@ -48,7 +48,7 @@ public class UserService {
 //            role = UserRole.ADMIN;
 //        }
 
-        User user = new User(username, password, framework);
+        User user = new User(username, password, skill);
         userRepository.save(user);
         return user;
     }

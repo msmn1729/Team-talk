@@ -35,6 +35,10 @@ public class UserDetailsImpl implements UserDetails {
         return user.getUsername();
     }
 
+    public String getFramework() {
+        return user.getSkill();
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

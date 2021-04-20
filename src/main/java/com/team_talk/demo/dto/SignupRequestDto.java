@@ -8,7 +8,7 @@ import lombok.Setter;
 public class SignupRequestDto {
     private String username;
     private String password;
-    private String framework;
-    private boolean admin = false;
-    private String adminToken = "";
+    private String skill;
+//    private boolean admin = false;
+//    private String adminToken = "";
 }
