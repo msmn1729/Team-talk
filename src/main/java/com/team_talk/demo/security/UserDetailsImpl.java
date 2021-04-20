@@ -1,7 +1,6 @@
 package com.team_talk.demo.security;
 
 import com.team_talk.demo.domain.User;
-import com.team_talk.demo.domain.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +18,11 @@ public class UserDetailsImpl implements UserDetails {
 
     public User getUser() {
         return user;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     @Override
@@ -53,14 +57,14 @@ public class UserDetailsImpl implements UserDetails {
 
     private static final String ROLE_PREFIX = "ROLE_";
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        UserRole userRole = user.getRole();
-
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(ROLE_PREFIX + userRole.toString());
-        Collection<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(authority);
-
-        return authorities;
-    }
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        UserRole userRole = user.getRole();
+//
+//        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(ROLE_PREFIX + userRole.toString());
+//        Collection<GrantedAuthority> authorities = new ArrayList<>();
+//        authorities.add(authority);
+//
+//        return authorities;
+//    }
 }

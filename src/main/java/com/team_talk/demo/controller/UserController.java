@@ -57,7 +57,7 @@ public class UserController {
         userService.registerUser(requestDto);
         System.out.println(requestDto.getUsername());
         System.out.println(requestDto.getPassword());
-        System.out.println(requestDto.getEmail());
+        System.out.println(requestDto.getFramework());
 //        return "redirect:/";
     }
 
@@ -66,11 +66,4 @@ public class UserController {
         return "forbidden";
     }
 
-    @GetMapping("/user/kakao/callback")
-    public String kakaoLogin(String code) {
-        // authorizedCode: 카카오 서버로부터 받은 인가 코드
-        userService.kakaoLogin(code);
-
-        return "redirect:/";
-    }
 }

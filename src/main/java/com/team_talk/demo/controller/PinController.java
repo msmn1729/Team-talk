@@ -29,7 +29,6 @@ public class PinController {
     ) {
         Pin pin = pinService.findById(pinId);
         return pin;
-
     }
 
     @PostMapping("/api/pins/{boardId}")
